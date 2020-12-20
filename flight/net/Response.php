@@ -268,8 +268,8 @@ class Response {
      */
     public function getContentLength() {
         return extension_loaded('mbstring') ?
-            mb_strlen($this->body, 'latin1') :
-            strlen($this->body);
+            mb_strlen($this->body, 'latin1') + 1 :
+            strlen($this->body) + 1;
     }
 
     /**
